@@ -205,6 +205,28 @@ export const PROJECTS: Project[] = [
     color: "from-fuchsia-500 to-purple-700",
     year: "2026",
   },
+  {
+    id: "addiskit",
+    title: "AddisKit",
+    subtitle: "Free toolkit for Ethiopian job seekers and businesses",
+    description:
+      "A free CV maker, business document templates, and a Birr expense tracker built for Ethiopia, with AI feedback built in. No sign-up, and nothing is uploaded.",
+    longDescription:
+      "AddisKit helps people get hired and then build a business. Everything runs in the browser and is saved on the visitor's own device. The two AI tools call small serverless functions powered by the Groq API, and the whole site switches between English and Amharic.",
+    technologies: ["HTML5", "CSS3", "Vanilla JavaScript", "Netlify Functions", "Groq API"],
+    features: [
+      "CV maker with live preview and PDF export, plus Ethiopian business document templates such as an Iqub agreement",
+      "Birr expense tracker with the 13-month Ethiopian calendar and Iqub and Idir categories",
+      "AI CV Reviewer and AI Business Advisor, with a full English and Amharic language toggle",
+    ],
+    image: "/images/project-addiskit.webp",
+    github: "https://github.com/Sol-Ethio-Coder/AddisKit",
+    live: "https://addiskit.netlify.app",
+    category: "fullstack",
+    featured: true,
+    color: "from-yellow-500 to-amber-700",
+    year: "2026",
+  },
 ];
 
 // Earlier projects, shown in the "More projects" list under the featured case studies.

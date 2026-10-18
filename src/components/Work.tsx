@@ -5,7 +5,7 @@ import MoreProjects from "./MoreProjects";
 import ProjectImage from "./ProjectImage";
 import { Reveal, Section, btnGhost, btnPrimary, card, chip, iconNudge } from "./ui";
 
-const CASE_IDS = ["stca", "equbhub", "mistir", "sol-ebooks", "tasko"];
+const CASE_IDS = ["stca", "equbhub", "mistir", "addiskit", "sol-ebooks", "tasko"];
 const cases = CASE_IDS.map((id) => PROJECTS.find((p) => p.id === id)).filter(Boolean) as Project[];
 
 function CaseStudy({ project, index }: { project: Project; index: number }) {
@@ -59,7 +59,7 @@ function CaseStudy({ project, index }: { project: Project; index: number }) {
 
 export default function Work() {
   return (
-    <Section id="work" eyebrow="Selected work" title="Projects built end to end" intro="Five live products I designed and built: a coding academy platform, an Equb management app, an encrypted password manager, an author website, and a task manager.">
+    <Section id="work" eyebrow="Selected work" title="Projects built end to end" intro="Six live products I designed and built: a coding academy platform, an Equb management app, an encrypted password manager, a toolkit for Ethiopian job seekers, an author website, and a task manager.">
       <div className="space-y-6">
         {cases.map((p, i) => <CaseStudy key={p.id} project={p} index={i} />)}
       </div>
