@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-dim: var(--dim);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-text: var(--accent-text);
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #0a0b10;
+  --surface: #11131a;
+  --surface-2: #181b25;
+  --line: #242836;
+  --ink: #eceef4;
+  --dim: #a2a8b8;
+  --faint: #7f8599;
+  --accent: #c8f169;
+  --accent-ink: #0a0b10;
+  --accent-text: #c8f169;
+  --glow2: #7c8cff;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --surface-2: #efede6;
+  --line: #dcd9cf;
+  --ink: #111318;
+  --dim: #4a5060;
+  --faint: #667085;
+  --accent: #c8f169;
+  --accent-ink: #0a0b10;
+  --accent-text: #3f6212;
+  --glow2: #7c8cff;
+}
+
+:root[data-theme="midnight"] {
+  color-scheme: dark;
+  --bg: #0d0a1a; --surface: #151128; --surface-2: #1d1836; --line: #2a2347;
+  --ink: #ede9fe; --dim: #b0a8d0; --faint: #7f77a6;
+  --accent: #a78bfa; --accent-ink: #0d0a1a; --accent-text: #b9a4ff; --glow2: #f472b6;
+}
+:root[data-theme="ocean"] {
+  color-scheme: dark;
+  --bg: #06141a; --surface: #0c1f28; --surface-2: #112a36; --line: #1c3a48;
+  --ink: #e6f6fb; --dim: #9bbfcc; --faint: #6b919f;
+  --accent: #22d3ee; --accent-ink: #06141a; --accent-text: #22d3ee; --glow2: #3b82f6;
+}
+:root[data-theme="ember"] {
+  color-scheme: dark;
+  --bg: #120c08; --surface: #1b130d; --surface-2: #251a12; --line: #36271b;
+  --ink: #fbefe3; --dim: #c4aa93; --faint: #947c67;
+  --accent: #fb923c; --accent-ink: #120c08; --accent-text: #fdba74; --glow2: #ef4444;
+}
+:root[data-theme="sage"] {
+  color-scheme: light;
+  --bg: #f1f5ef; --surface: #ffffff; --surface-2: #e6ede2; --line: #cfdacb;
+  --ink: #14201a; --dim: #44554a; --faint: #5f7266;
+  --accent: #7ddc9a; --accent-ink: #0b1f12; --accent-text: #166534; --glow2: #67e8f9;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; border-radius: 6px; }
+
+.atmosphere {
+  background:
+    radial-gradient(55% 45% at 85% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+    radial-gradient(45% 40% at 0% 100%, color-mix(in srgb, var(--glow2) 14%, transparent), transparent 70%);
+}
+.grid-lines {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 30%, #000 20%, transparent 70%);
+  opacity: 0.35;
+}
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee { animation: marquee 40s linear infinite; }
+.marquee:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee { animation: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+
+/* Spotlight cards: a soft accent glow follows the pointer (see useSpotlight in App.tsx) */
+.spot { position: relative; isolation: isolate; transition: border-color 0.3s, transform 0.3s; }
+.spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--accent) 16%, transparent), transparent 65%);
+}
+.spot:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+.spot:hover::before { opacity: 1; }
