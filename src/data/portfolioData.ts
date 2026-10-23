@@ -530,12 +530,23 @@ export const CERTIFICATIONS_LIST = [
   { title: "AI Fundamentals", issuer: "Ethio Coders Initiative", year: "2025", badge: "Certificate" },
 ];
 
-export const AWARDS = [
+export type Award = {
+  title: string;
+  org: string;
+  date: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+};
+
+export const AWARDS: Award[] = [
   {
     title: "Star Teacher of the Month",
     org: "Trillium International School (TIS)",
     date: "December 2025",
     description: "Recognized for outstanding teaching performance, student support, commitment to academic excellence, and positive contribution to the school community.",
+    image: "/images/tis-star-teacher-certificate.webp",
+    imageAlt: "Star Teacher of the Month certificate from Trillium International School, presented to Mr. Solomon Ashagre for December 2025",
   },
   {
     title: "Cursor AI Hackathon Ethiopia",

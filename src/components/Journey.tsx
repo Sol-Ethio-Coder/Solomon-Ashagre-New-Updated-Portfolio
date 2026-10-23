@@ -1,9 +1,12 @@
-import { useRef } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
-import { AWARDS, CERTIFICATIONS_LIST, EDUCATION_TIMELINE, EXPERIENCE_TIMELINE, LANGUAGES, VOLUNTEERING } from "../data/portfolioData";
+import { useState, useRef } from "react";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
+import { Award as AwardIcon, Expand } from "lucide-react";
+import { AWARDS, Award, CERTIFICATIONS_LIST, EDUCATION_TIMELINE, EXPERIENCE_TIMELINE, LANGUAGES, VOLUNTEERING } from "../data/portfolioData";
+import Lightbox from "./Lightbox";
 import { Reveal, Section, card } from "./ui";
 
 export default function Journey() {
+  const [viewing, setViewing] = useState<Award | null>(null);
   const listRef = useRef<HTMLOListElement>(null);
   const { scrollYProgress } = useScroll({ target: listRef, offset: ["start 70%", "end 55%"] });
   const scaleY = useSpring(scrollYProgress, { stiffness: 120, damping: 24, mass: 0.3 });
@@ -51,6 +54,32 @@ export default function Journey() {
                   <p className="font-medium leading-snug">{a.title}</p>
                   <p className="text-sm text-dim">{[a.org, a.date].filter(Boolean).join(" · ")}</p>
                   <p className="mt-1.5 text-sm leading-6 text-dim">{a.description}</p>
+
+                  {a.image && (
+                    <button
+                      onClick={() => setViewing(a)}
+                      aria-label={`View certificate: ${a.title}`}
+                      className="group relative mt-4 block w-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#f3d27a] via-[#c8962e] to-[#f3d27a] p-[3px] shadow-[0_18px_50px_-24px_rgba(231,184,75,0.55)] transition-shadow duration-500 hover:shadow-[0_24px_70px_-20px_rgba(231,184,75,0.75)]"
+                    >
+                      <span className="relative block overflow-hidden rounded-[13px] bg-bg">
+                        <img
+                          src={a.image}
+                          alt={a.imageAlt ?? a.title}
+                          loading="lazy"
+                          decoding="async"
+                          className="block aspect-[1467/1072] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                        />
+                        {/* shine sweep */}
+                        <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-1000 group-hover:translate-x-full" aria-hidden />
+                        <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-black/65 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-[#f3d27a] backdrop-blur">
+                          <AwardIcon className="h-3 w-3" aria-hidden /> Certificate
+                        </span>
+                        <span className="absolute inset-x-0 bottom-0 flex items-center justify-center gap-2 bg-gradient-to-t from-black/75 to-transparent px-4 pb-3 pt-10 text-xs font-medium text-white opacity-100 transition-opacity sm:opacity-0 sm:group-hover:opacity-100">
+                          <Expand className="h-3.5 w-3.5" aria-hidden /> View full certificate
+                        </span>
+                      </span>
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -87,6 +116,17 @@ export default function Journey() {
           </Reveal>
         </div>
       </div>
+      <AnimatePresence>
+        {viewing?.image && (
+          <Lightbox
+            src={viewing.image}
+            alt={viewing.imageAlt ?? viewing.title}
+            title={viewing.title}
+            caption={[viewing.org, viewing.date].filter(Boolean).join(" · ")}
+            onClose={() => setViewing(null)}
+          />
+        )}
+      </AnimatePresence>
     </Section>
   );
 }
