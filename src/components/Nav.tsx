@@ -38,11 +38,21 @@ export default function Nav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:pt-5" style={{ paddingTop: "max(1rem, env(safe-area-inset-top))" }}>
-      <nav aria-label="Primary" className="mx-auto flex max-w-4xl items-center justify-between gap-2 rounded-full border border-line bg-bg/70 py-2 pl-5 pr-2 backdrop-blur-xl">
-        <a href="#top" aria-label="Solomon Ashagre, back to top" className="group font-mono text-sm font-medium tracking-tight">
-          <span className="text-accent-text transition-all group-hover:mr-0.5">&lt;</span>
-          Solomon Ashagre
-          <span className="text-accent-text transition-all group-hover:ml-0.5"> /&gt;</span>
+      <nav aria-label="Primary" className="mx-auto flex max-w-4xl items-center justify-between gap-2 rounded-full border border-line bg-bg/70 py-2 pl-2.5 pr-2 backdrop-blur-xl">
+        <a href="#top" aria-label="Solomon Ashagre, back to top" className="group flex min-w-0 items-center gap-2.5 font-mono text-sm font-medium tracking-tight">
+          <img
+            src="/logo-96.png"
+            alt=""
+            width={32}
+            height={32}
+            decoding="async"
+            className="h-8 w-8 shrink-0 rounded-full transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110"
+          />
+          <span className="truncate">
+            <span className="text-accent-text transition-all group-hover:mr-0.5">&lt;</span>
+            Solomon Ashagre
+            <span className="text-accent-text transition-all group-hover:ml-0.5"> /&gt;</span>
+          </span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">

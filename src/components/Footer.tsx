@@ -20,9 +20,12 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="font-mono text-base font-medium">
-              <span className="text-accent-text">&lt;</span>Solomon Ashagre<span className="text-accent-text"> /&gt;</span>
-            </p>
+            <a href="#top" aria-label="Solomon Ashagre, back to top" className="group flex w-fit items-center gap-3 font-mono text-base font-medium">
+              <img src="/logo-96.png" alt="" width={40} height={40} loading="lazy" decoding="async" className="h-10 w-10 rounded-full transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110" />
+              <span>
+                <span className="text-accent-text">&lt;</span>Solomon Ashagre<span className="text-accent-text"> /&gt;</span>
+              </span>
+            </a>
             <p className="mt-2 max-w-xs text-sm leading-6 text-dim">Computing teacher, full stack developer, and founder of STCA, based in Addis Ababa.</p>
           </div>
 
