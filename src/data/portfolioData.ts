@@ -505,6 +505,32 @@ export const EXPERIENCE_TIMELINE: Experience[] = [
     ],
     techStack: [],
   },
+  {
+    title: "Tutor",
+    company: "Sewawi Tutor",
+    period: "July 2024 - Present",
+    location: "Part-time",
+    type: "Teaching",
+    description:
+      "A passionate educator with tutoring experience and a professional background as an IT Teacher, dedicated to empowering others through knowledge and technical support.",
+    achievements: [],
+    techStack: [],
+  },
+  {
+    title: "WordPress & Frontend Specialist Intern",
+    company: "KNS Trading PLC",
+    period: "2022 - 2023",
+    location: "Addis Ababa, Ethiopia",
+    type: "Internship",
+    description:
+      "Managed the digital presence and commercial landing pages for a prominent Ethiopian trading conglomerate.",
+    achievements: [
+      "Designed, launched, and continuously maintained corporate portals using WordPress and Elementor",
+      "Engineered custom PHP snippets and configured SEO plugins for higher organic indexing",
+      "Optimized multimedia assets, achieving a 40% improvement in Google PageSpeed scores",
+    ],
+    techStack: ["WordPress", "Elementor", "PHP", "SEO plugins"],
+  },
 ];
 
 export const EDUCATION_TIMELINE: EducationItem[] = [

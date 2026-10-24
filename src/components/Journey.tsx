@@ -23,11 +23,13 @@ export default function Journey() {
                 <h3 className="mt-1 text-xl font-semibold transition-colors group-hover:text-accent-text">{e.title}</h3>
                 <p className="text-dim">{e.company}</p>
                 <p className="mt-3 text-sm leading-6 text-dim">{e.description}</p>
-                <ul className="mt-3 space-y-1.5 text-sm leading-6">
-                  {e.achievements.slice(0, 2).map((a) => (
-                    <li key={a} className="flex gap-3"><span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-faint" aria-hidden />{a}</li>
-                  ))}
-                </ul>
+                {e.achievements.length > 0 && (
+                  <ul className="mt-3 space-y-1.5 text-sm leading-6">
+                    {e.achievements.map((a) => (
+                      <li key={a} className="flex gap-3"><span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-faint" aria-hidden />{a}</li>
+                    ))}
+                  </ul>
+                )}
               </li>
             </Reveal>
           ))}
