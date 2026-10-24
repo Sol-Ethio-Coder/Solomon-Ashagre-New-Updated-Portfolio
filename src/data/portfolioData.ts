@@ -58,7 +58,7 @@ export const PROFILE = {
   role: "Computing Teacher & Full Stack Developer",
   tagline: "Building exceptional, high-performance digital products from Addis Ababa.",
   bio:
-    "Computer Science graduate from Addis Ababa University and Computing Teacher with 2+ years of professional teaching experience. I have hands-on full-stack development experience through three remote software development internships and multiple real-world projects, and I was recognized as Star Teacher of the Month at Trillium International School.",
+    "B.Sc. Computer Science graduate and multi-disciplinary STEM educator with strong proficiency in secondary Mathematics and Computing/ICT. Experienced in delivering Cambridge and inquiry-based curricula, integrating full-stack technical projects, and fostering analytical problem-solving skills across diverse student bodies.",
   avatar: "/images/solomon-avatar.jpg",
   email: "solethiocoder@gmail.com",
   phone: "+251 901436358",
@@ -404,22 +404,24 @@ export const MORE_PROJECTS: Project[] = [
   },
   {
     id: "stca-academy-react",
-    title: "STCA Academy Next-Gen Portal",
-    subtitle: "Modern React-Powered EdTech Web Application",
-    description: "A completely refactored Next-Generation EdTech portal boasting interactive live courses, slick UI, and modern React tools.",
-    longDescription: "Bringing STCA into the modern React ecosystem, this application introduced dynamic course filtering, immersive animated video previews, automated lecture syllabuses, and robust student onboarding flows.",
-    technologies: ["React", "CSS3 Modules", "Responsive Design", "Vite", "Netlify"],
+    title: "STCA Academy",
+    subtitle: "Sol Tutoring & Coding Academy website",
+    description:
+      "The website of Sol Tutoring & Coding Academy: students master academics and coding from scratch, with real tutors, real projects, and real progress they can see.",
+    longDescription:
+      "The home of my academy in Addis Ababa, with a clear mission: make quality tutoring and coding education accessible to every student in Addis Ababa and beyond, one patient lesson at a time. It presents the courses and tutoring services and invites new students to enroll, online or in person.",
+    technologies: ["React", "JavaScript", "HTML5", "CSS3", "Netlify"],
     features: [
-      "Dynamic interactive syllabus previews with expandable lesson modules",
-      "Lightning-fast client-side routing with React Router",
-      "Interactive quiz sample blocks with immediate score feedback",
+      "Now-enrolling banner, mission statement, and clear calls to action for courses and tutoring",
+      "Coding for beginners (Python, C++, Scratch) and for website builders (HTML, CSS, JavaScript)",
+      "Academic tutoring in Mathematics, Science, English, and Physics, plus national exam preparation for Grades 6, 8, and 12",
     ],
     image: "/images/project-stca-academy.webp",
-    github: "https://github.com/Sol-Ethio-Coder/stca-academy",
+    github: "https://github.com/Sol-Ethio-Coder/Sol-Tutoring-And-Coding-Academy",
     live: "https://stca-academy.netlify.app/",
     category: "fullstack",
     featured: false,
-    color: "from-violet-500 to-purple-700",
+    color: "from-emerald-400 to-green-700",
     year: "2026",
   },
 ];

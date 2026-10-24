@@ -1,0 +1,13 @@
+{
+  "name": "Solomon Ashagre | Sol Ethio Coder",
+  "short_name": "Sol Ethio Coder",
+  "description": "Computing teacher and full stack developer in Addis Ababa, Ethiopia.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0a0b10",
+  "theme_color": "#0a0b10",
+  "icons": [
+    { "src": "/favicon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
